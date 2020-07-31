@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Character</title>
+        <meta charset="utf8">
+        <script src="./gameCharaData.js"></script>
+        <link rel="shortcut icon" href="./Images/Icon.jpg"/>
+        <link rel="stylesheet" type="text/css" href="./gameCharaCss.css">
+    </head>
+    <body>
+        <div id="topDiv">
+            <img id="topLogo" src="./Images/Logo.png">
+            <ul>
+                <li><a href="./index.html" target="_self">Home</a></li>
+                <li><a href="./index.html#newsDiv" target="_self">News</a></li>
+                <li><a href="./index.html#characterDiv" target="_self">Character</a></li>
+                <li><a href="./aboutme.html" target="_self">About</a></li>
+            </ul>
+        </div>
+        <div id="profileDiv">
+            <img id="profileImg">
+            <div id="charaProfileDiv">
+                <h3 class="profile" theTitle="name">Name: <span style="color: rgb(110, 152, 241);">-</span></h3>
+                <h3 class="profile" theTitle="age">Age: <span style="color: rgb(110, 152, 241);">-</span></h3>
+                <h3 class="profile" theTitle="cv">CV: <span style="color: rgb(110, 152, 241);">-</span></h3>
+                <h3 class="profile" theTitle="skill">Skill: <span style="color: rgb(110, 152, 241);">-</span></h3>
+                <h3 class="profile" theTitle="skillDes">Skill description: <span style="color: rgb(110, 152, 241);">-</span></h3>
+            </div>
+            <script>
+                let profileJson = JSON.parse(charaProfile);
+                let profileImage = document.getElementById("profileImg");
+                profileImage.src = `./Images/${characterName}.png`;
+
+                let profiles = document.getElementsByClassName("profile");
+                for(let e of profiles) {
+                    let childrenElement = e.children;
+                    let attribute = e.getAttribute("theTitle");
+                    switch (attribute) {
+                        case "name": 
+                            childrenElement[0].innerHTML = profileJson[characterName].name;
+                            break;
+                        case "age":
+                            childrenElement[0].innerHTML = profileJson[characterName].age;
+                            break;
+                        case "cv":
+                            childrenElement[0].innerHTML = profileJson[characterName].cv;
+                            break;
+                        case "skill":
+                            childrenElement[0].innerHTML = profileJson[characterName].skillName;
+                            break;
+                        default:
+                            childrenElement[0].innerHTML = profileJson[characterName].skillDescription;
+                    }
+                }
+            </script>
+            <div id="profileContentDiv">
+                <h2 class="theTitle">Personality:</h2>
+                <p class="content" theTitle="personalityContent">-</p>
+                <script>
+                    let element = document.getElementsByClassName("content");
+                    for (let e of element) {
+                        switch (e.getAttribute("theTitle")) {
+                            case "personalityContent":
+                                e.innerHTML = profileJson[characterName].personality;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </body>
+</html>

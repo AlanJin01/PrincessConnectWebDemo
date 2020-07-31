@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pricess Connect</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="./indexCss.css">
+        <link rel="shortcut icon" href="./Images/Icon.jpg"/>
+    </head>
+    <body>
+        <div id="topDiv">
+            <img id="topLogo" src="./Images/Logo.png">
+            <ul>
+                <li><a href="./index.html" target="_self">Home</a></li>
+                <li><a href="#newsDiv" target="_self">News</a></li>
+                <li><a href="#characterDiv" target="_self">Character</a></li>
+                <li><a href="./aboutme.html" target="_self">About</a></li>
+            </ul>
+        </div>
+        <div id="membersImgDiv">
+            <img id="allMembersBottom" src="./Images/ThreeMembers2.png">
+            <img id="allMembers" src="./Images/ThreeMembers.png">
+            <img id="memLogo" src="./Images/Logo.png">
+            <script>
+                let memberImg = document.getElementById("allMembers");
+                let bottomMemberImg = document.getElementById("allMembersBottom");
+                let rotY = 0;
+                document.onmousemove = function(event) {
+                    rotY = event.clientX;
+                    if (rotY >= 0 && rotY <= 700) {
+                        memberImg.style.cssText = `
+                            transform: rotateY(${(rotY-700) * 0.03}deg);
+                        `;
+                        bottomMemberImg.style.cssText = `
+                            transform: rotateY(${(rotY-700) * 0.03}deg);
+                            transform: translate(${(rotY-700) * 0.04}px);
+                        `;
+                    }else if (rotY > 700 && rotY <= 1400) {
+                        memberImg.style.cssText = `
+                            transform: rotateY(${(rotY-700) * 0.03}deg);
+                        `;
+                        bottomMemberImg.style.cssText = `
+                            transform: rotateY(${(rotY-700) * 0.03}deg);
+                            transform: translate(${(rotY-700) * 0.04}px);
+                        `;
+                    }
+                }
+            </script>
+        </div>
+        <div id="newsDiv">
+            <h2>News</h2>
+            <div id="newsImgDiv">
+                <img id="newsImg2" src="./Images/NewsImg2.jpg">
+                <img id="newsImg" src="./Images/NewsImg.jpg">
+                <img id="newsImg3" src="./Images/NewsImg3.jpg">
+                <script>
+                    let firstNewsImg = document.getElementById("newsImg"); // 3个图当中中间最顶部图
+                    let secondNewsImg = document.getElementById("newsImg2"); // 3个图当中左边的图
+                    let thirdNewsImg = document.getElementById("newsImg3"); // 3个图当中右边的图
+                    let newsImgDiv = document.getElementById("newsImgDiv"); 
+                    newsImgDiv.onclick = function(event) {
+                        let curTarget = event.target;
+                        if (curTarget == firstNewsImg) { // 如果点击了中间的图
+                            
+
+                        }else if (curTarget == secondNewsImg) { // 如果点击了左边的图, 就跟中间的图互换, 右边图挪到左边
+                            const MIDDLEIMG = document.getElementById("newsImg").src;   
+                            const RIGHTIMG = document.getElementById("newsImg3").src;            
+                            document.getElementById("newsImg").src = secondNewsImg.src;
+                            document.getElementById("newsImg3").src = MIDDLEIMG;
+                            document.getElementById("newsImg2").src = RIGHTIMG;
+
+                        }else if (curTarget == thirdNewsImg) { // 如果点击了右边的图，就跟中间的图互换，左边图挪到右边
+                            const MIDDLEIMG = document.getElementById("newsImg").src;
+                            const LEFTIMG = document.getElementById("newsImg2").src;  
+                            document.getElementById("newsImg").src = thirdNewsImg.src;
+                            document.getElementById("newsImg2").src = MIDDLEIMG;
+                            document.getElementById("newsImg3").src = LEFTIMG;
+                        }
+                    }
+                </script>
+            </div>
+            <div id="child-newsDiv">
+                <a class="newsAnchor" href="">
+                    <span class="news-date">2020.7.23</span><br/>
+                    <span class="news-content">"Princess Link Re: Dive" mobile game random selection gameplay probability announcement</span>
+                </a><br/>
+                <a class="newsAnchor" href="">
+                    <span class="news-date">2020.7.18</span><br/>
+                    <span class="news-content">"Difficult level" drops twice the celebration</span>
+                </a><br/>
+                <a class="newsAnchor" href="">
+                    <span class="news-date">2020.6.21</span><br/>
+                    <span class="news-content">"Daily Task Reward" 2 times celebration</span>
+                </a>
+            </div>
+        </div>
+        <div id="characterDiv">
+            <h2>Character</h2>
+            <img id="characterImg">
+            <img id="arrowL" src="./Images/arrowLeft.png">
+            <img id="arrowR" src="./Images/arrowRight.png">
+            <script>
+                const CHARACTERS = ["peko2", "kailu2", "cocoro2"];
+                let count = 0;
+                document.getElementById("characterImg").src = `./Images/${CHARACTERS[count]}.png`;
+                
+                const ARROWLEFT = document.getElementById("arrowL");
+                const ARROWRIGHT = document.getElementById("arrowR");
+                ARROWLEFT.onclick = function(event) {
+                    count -= 1;
+                    if (count < 0) {
+                        count = CHARACTERS.length - 1;  
+                    }
+                    document.getElementById("characterImg").src = `./Images/${CHARACTERS[count]}.png`;
+                };
+                ARROWRIGHT.onclick = function(event) {
+                    count += 1;
+                    if (count >= CHARACTERS.length) {
+                        count = 0;
+                    }
+                    document.getElementById("characterImg").src = `./Images/${CHARACTERS[count]}.png`;
+                };
+
+                // 如果点击了角色图，就进入相关页面
+                const IMAGE = document.getElementById("characterImg");
+                IMAGE.onclick = function(event) {
+                    document.cookie = 'character=' + encodeURIComponent(CHARACTERS[count]) + '; ' + 'path=/;';
+                    window.location = `./gameCharacter.html?${CHARACTERS[count]}`;
+                };
+            </script>
+        </div>
+    </body>
+</html>

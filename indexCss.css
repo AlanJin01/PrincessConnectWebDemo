@@ -1,0 +1,274 @@
+body {
+    background: url("./Images/BackgroundImg.jpg");
+    background-size: unset;
+    background-attachment: fixed;
+}
+
+#topDiv {
+    /* the top menu */
+    position: fixed;
+    top: 0;
+    height: 6rem;
+    width: 90rem;
+    left: 50%;  
+    margin-left: -45rem;
+    background-color: rgba(255, 255, 255, 0.753);
+    z-index: 2;
+}
+#topDiv>#topLogo {
+    float: left;
+    margin-left: 3%;
+}
+#topDiv>ul {
+    float: left;
+    display: inline;
+    list-style-type: none;
+    font-family: comicSans;
+    font-size: 1.3rem;
+    position: relative;
+    height: 2rem;
+    top: 50%;
+    margin-top: -1rem;
+    margin-left: 10rem;
+}
+#topDiv>ul li {
+    display: inline;
+    margin-left: 4rem;
+}
+#topDiv>ul li:last-child {
+    display: inline;
+    margin-right: 4rem;
+    margin-left: 4rem;
+}
+#topDiv>ul li a:link{
+    text-decoration: none;
+    color: rgb(110, 152, 241);
+}
+#topDiv>ul li a:visited{
+    color: rgb(110, 152, 241);
+}
+#topDiv>ul li a:hover{
+    color: rgb(186, 208, 253);
+}
+
+#membersImgDiv {
+    width: 50rem;
+    height: 50rem;
+    position: relative;
+    clear: both;
+    margin-top: 6%;
+    left: 50%;
+    margin-left: -25rem;
+}
+#membersImgDiv>#allMembers {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#membersImgDiv>#allMembersBottom {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+}
+img#memLogo {
+    position: absolute;
+    width: 40rem;
+    object-fit: contain;
+    left: 50%;
+    margin-left: -20rem;
+    margin-top: 40%;
+}
+
+#newsDiv {
+    position: relative;
+    width: 56rem;
+    height: 32rem;
+    left: 50%;
+    margin-left: -28rem;
+    background-color: rgba(255, 255, 255, 0.637);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.185);
+}
+#newsDiv>h2 {
+    font-family: rainMaker;
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(110, 152, 241);
+    text-decoration: underline;
+}
+
+div#newsImgDiv {
+    text-align: center;
+}
+img#newsImg {
+    position: relative;
+    object-fit: cover;
+    width: 32%;
+    height: 30%;
+    display: inline;
+    z-index: 1;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.363);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(250, 151, 175, 0.74);
+}
+img#newsImg2 {
+    position: relative;
+    object-fit: cover;
+    width: 32%;
+    height: 30%;
+    left: 10%;
+    opacity: 0.6;
+    display: inline;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.363);
+    transform: translateY(10px);
+}
+img#newsImg3 {
+    position: relative;
+    object-fit: cover;
+    width: 32%;
+    height: 30%;
+    left: -10%;
+    opacity: 0.6;
+    display: inline;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.363);
+    transform: translateY(10px);
+}
+
+div#child-newsDiv {
+    position: relative;
+    width: 96%;
+    left: 50%;
+    margin-left: -48%;
+    margin-top: 5%;
+}
+a.newsAnchor {
+    display: block;
+}
+a.newsAnchor:link {
+    text-decoration: none;
+}
+a.newsAnchor:visited {
+    color: black;
+}
+a.newsAnchor:hover {
+    color: black;
+}
+span.news-date {
+    width: 100%;
+    font-family: comicSans;
+    color: rgb(91, 173, 80);
+}
+span.news-content {
+    display: block;
+    width: 100%;
+    font-family: comicSans;
+    text-indent: 10px;
+    border-bottom-style: solid;
+    border-bottom-width: 0.1rem;
+    border-color: rgba(110, 151, 241, 0.452);
+    color: rgb(110, 151, 241);
+}
+
+#characterDiv {
+    position: relative;
+    width: 56rem;
+    left: 50%;
+    margin-left: -28rem;
+    margin-top: 5rem;
+    text-align: center;
+}
+#characterDiv>h2 {
+    font-family: rainMaker;
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(110, 152, 241);
+    text-decoration: underline;
+}
+img#characterImg {
+    position: relative;
+    width: 50%;
+    height: 40rem;
+    object-fit: contain;
+}
+img#arrowL {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+}
+img#arrowR {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+}
+
+@font-face {
+    src: url("./Fonts/ComicNeueSansID.ttf");
+    font-family: comicSans;
+}
+@font-face {
+    src: url("./Fonts/Therainmaker-4dqD.otf");
+    font-family: rainMaker;
+}
+
+@media only screen and (max-width: 1200px) {
+    #topDiv {
+        height: 3.6rem;
+        width: 54rem;
+        left: 50%;  
+        margin-left: -27rem;
+    }
+    #topDiv>#topLogo {
+        float: left;
+        margin-left: 3%;
+        width: 10rem;
+    }
+    #topDiv>ul {
+        font-size: 1rem;
+        height: 1.2rem;
+        margin-top: -0.6rem;
+        margin-left: 6rem;
+    }
+    #topDiv>ul li {
+        margin-left: 2.4rem;
+    }
+    #topDiv>ul li:last-child {
+        margin-right: 2.4rem;
+        margin-left: 2.4rem;
+    }
+
+    #membersImgDiv {
+        width: 30rem;
+        height: 30rem;
+        margin-top: 3.6%;
+        left: 50%;
+        margin-left: -15rem;
+    }
+    img#memLogo {
+        width: 16rem;
+        left: 50%;
+        margin-left: -8rem;
+        margin-top: 40%;
+    }
+
+    #newsDiv {
+        width: 34rem;
+        height: 27rem;
+        left: 50%;
+        margin-left: -17rem;
+    }
+    #newsDiv>h2 {
+        font-size: 1.7rem;
+    }
+
+    #characterDiv {
+        width: 34rem;
+        margin-left: -17rem;
+        margin-top: 3rem;
+    }
+    img#characterImg {
+        height: 24rem;
+    }
+}
